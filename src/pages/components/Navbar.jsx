@@ -4,7 +4,7 @@ export default function Navbar (){
         <div className={styles.container}>
             <nav>
                 <img src="logo.png" className={styles.logo}></img>
-                <input type='search' className={styles.search}/>
+                <input placeholder="Enter your Search" type='search' className={styles.search}/>
                 <img src="profile.jpg" className={styles.profile}></img>
             </nav>
         </div>
