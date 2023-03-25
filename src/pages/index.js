@@ -11,9 +11,10 @@ export default function Home() {
   return (
     <>
     <Navbar/>
-    <div className={styles.recentcontainer}>
+    {/* <div className={styles.recentcontainer}>
       <Recentcard />
-    </div>
+    </div> */}
+  <Recent />
     </>
   )
 }

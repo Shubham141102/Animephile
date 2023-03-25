@@ -6,14 +6,14 @@ export default  function Recent(){
     const [data, setData] = useState(null)
     const [isLoading, setLoading] = useState(false)
     useEffect(() => {
-        console.log('hohdsf')
       setLoading(true)
-      fetch('https://gogoanime.consumet.stream/recent-release')
+      fetch('https://random-data-api.com/api/v2/users?size=2&is_json=true')
         .then((res) => res.json())
         .then((data) => {
           setData(data);
           setLoading(false);
-          console.log(data);
+          
+          console.log(data[0].first_name);
         })
     }, []);
   
@@ -22,7 +22,8 @@ export default  function Recent(){
   
     return(
         <div className={styles.recent}>
-           
+            
+           <p>{data[0].first_name}</p>
         </div>
     )
 }
