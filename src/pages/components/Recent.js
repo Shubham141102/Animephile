@@ -3,27 +3,26 @@ import { useState, useEffect } from 'react'
 
 
 export default  function Recent(){
-    const [data, setData] = useState(null)
-    const [isLoading, setLoading] = useState(false)
-    useEffect(() => {
-      setLoading(true)
-      fetch('https://random-data-api.com/api/v2/users?size=2&is_json=true')
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-          setLoading(false);
+    // const [data, setData] = useState(null)
+    // const [isLoading, setLoading] = useState(false)
+    // useEffect(() => {
+    //   setLoading(true)
+    //   fetch('https://random-data-api.com/api/v2/users?size=2&is_json=true')
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       setData(data);
+    //       setLoading(false);
           
-          console.log(data[0].first_name);
-        })
-    }, []);
+    //       console.log(data[0].first_name);
+    //     })
+    // }, []);
   
-    if (isLoading) return <p>Loading...</p>
-    if (!data) return <p>No profile data</p>
+    // if (isLoading) return <p>Loading...</p>
+    // if (!data) return <p>No profile data</p>
   
     return(
         <div className={styles.recent}>
-            
-           <p>{data[0].first_name}</p>
+           <p>{}</p>
         </div>
     )
 }

@@ -6,15 +6,87 @@ import Navbar from './components/Navbar'
 import Recent from './components/Recent'
 import Recentcard from './components/Recentcard'
 const inter = Inter({ subsets: ['latin'] })
+import { initializeApp } from "firebase/app";
+import { getAuth,GoogleAuthProvider,signInWithPopup,signOut } from "firebase/auth";
+import { useState } from 'react'
 
 export default function Home() {
+  const [islogedin, setLog] = useState(0);
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
+    authDomain: "animephile-a28c7.firebaseapp.com",
+    projectId: "animephile-a28c7",
+    storageBucket: "animephile-a28c7.appspot.com",
+    messagingSenderId: "269230750335",
+    appId: "1:269230750335:web:bd8b2a840d3d4305535d4a"
+  };
+
+  var a = true;
+  // Initialize Firebase
+  
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  var name = {};
+  console.log(name);
+
+  function logmein(){
+    console.log("logging you in");
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+      name = user;
+      console.log(user);
+      setLog(1);
+      // IdP data available using getAdditionalUserInfo(result)
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.customData.email;
+      // The AuthCredential type that was used.
+      const credential = GoogleAuthProvider.credentialFromError(error);
+      // ...
+    });
+  }
+
+  function logmeout(){
+    signOut(auth).then(() => {
+  // Sign-out successful.
+  console.log("Logged Out");
+  setLog(0);
+}).catch((error) => {
+  // An error happened.
+});
+  }
+
   return (
     <>
-    <Navbar/>
-    {/* <div className={styles.recentcontainer}>
-      <Recentcard />
-    </div> */}
-  <Recent />
+
+  
+
+
+
+    {islogedin ?
+      <>
+      Login here
+      <button id='googlebtn' onClick={logmein}>Google</button>
+      </>
+     : 
+      <>
+        <Navbar/>
+        <Recent />
+        <button onClick={logmeout} >Log Out</button>
+      </>
+    }
+    
     </>
   )
 }
