@@ -11,7 +11,7 @@ import { getAuth,GoogleAuthProvider,signInWithPopup,signOut } from "firebase/aut
 import { useState } from 'react'
 
 export default function Home() {
-  const [islogedin, setLog] = useState(0);
+  const [islogedin, setLog] = useState(1);
 
   const firebaseConfig = {
     apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
@@ -42,7 +42,7 @@ export default function Home() {
       const user = result.user;
       name = user;
       console.log(user);
-      setLog(1);
+      setLog(0);
       // IdP data available using getAdditionalUserInfo(result)
       // ...
     }).catch((error) => {
@@ -61,7 +61,7 @@ export default function Home() {
     signOut(auth).then(() => {
   // Sign-out successful.
   console.log("Logged Out");
-  setLog(0);
+  setLog(1);
 }).catch((error) => {
   // An error happened.
 });
