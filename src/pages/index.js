@@ -77,7 +77,7 @@ export default function Home() {
     {islogedin ?
       <>
       Login here
-      <button id='googlebtn' onClick={logmein}>Google</button>
+      <button id='googlebtn' onClick={logmein}>Goooooogle</button>
       </>
      : 
       <>
