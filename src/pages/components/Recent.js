@@ -1,5 +1,4 @@
 import styles from "@/styles/Home.module.css"
-import { useState, useEffect } from 'react'
 import Recentcard from "./Recentcard"
 import cardData from "./cardData"
 export default  function Recent(){
