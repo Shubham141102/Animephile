@@ -65,7 +65,7 @@ export default function Login(props){
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                <span claclassName={styles.card__title}ss>ANIMEPHILE</span>
+                <span className={styles.card__title}ss>ANIMEPHILE</span>
                 <p className={styles.card__content}>Get Reminders for Lates episodes releases.
                 </p>
                 <div className={styles.card__form}>
