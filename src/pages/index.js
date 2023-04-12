@@ -69,11 +69,6 @@ export default function Home() {
 
   return (
     <>
-
-  
-
-
-
     {islogedin ?
       <>
       Login here
@@ -87,6 +82,9 @@ export default function Home() {
       </>
     }
     
+
+      {/* <Navbar/>
+      <Recent/> */}
     </>
   )
 }
