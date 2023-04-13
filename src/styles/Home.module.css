@@ -390,3 +390,12 @@ grid-template-columns : 3fr 1fr;
   height : 80%;
 }
 
+.logoutbtn{
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
