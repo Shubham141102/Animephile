@@ -10,7 +10,7 @@ import { useState } from 'react'
 import Login from './components/loginpage'
 import { initializeApp } from 'firebase/app';
 
-import { getAuth,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { getAuth,GoogleAuthProvider,signInWithPopup,signOut } from "firebase/auth";
 
 
 
