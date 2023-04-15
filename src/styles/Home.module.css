@@ -399,3 +399,9 @@ grid-template-columns : 3fr 1fr;
   font-weight: bold;
   cursor: pointer;
 }
+
+
+.logoutbtn:hover{
+  background-color: rgba(0, 0, 0, 0.693);
+}
+

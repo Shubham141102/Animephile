@@ -8,6 +8,15 @@ import Recentcard from './components/Recentcard'
 const inter = Inter({ subsets: ['latin'] })
 import { useState } from 'react'
 import Login from './components/loginpage'
+import { initializeApp } from 'firebase/app';
+
+import { getAuth,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+
+
+
+
+
+
 
 export default function Home() {
   const [islogedin, setLog] = useState(1);
