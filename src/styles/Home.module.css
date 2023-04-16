@@ -291,16 +291,19 @@
 .search{
   width:40%;
   height:3em;
-  border-radius:1.2em;
+  border-radius:1em;
   padding-left : 10px ;
+  border: 2px solid black;
 }
 .logo{
   width:12em;
 }
 
 .profile{
-  height:3.5em;
+  height:3.2em;
   border-radius:50%;
+  border: 3px solid black;
+  
 }
 
 .recentcontainer{
@@ -405,3 +408,6 @@ grid-template-columns : 3fr 1fr;
   background-color: rgba(0, 0, 0, 0.693);
 }
 
+.hiuser{
+  font-size: 16px;
+}

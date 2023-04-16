@@ -10,7 +10,7 @@ import { useState } from 'react'
 import Login from './components/loginpage'
 import { initializeApp } from 'firebase/app';
 
-import { getAuth,GoogleAuthProvider,signInWithPopup,signOut } from "firebase/auth";
+import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
 
 
 
@@ -55,7 +55,6 @@ export default function Home() {
       seturl(name.photoURL);
       console.log("---------------------");
 
-      setLog(0);
     }).catch((error) => {
       // Handle Errors here.
       const errorCode = error.code;
@@ -67,11 +66,31 @@ export default function Home() {
 
   function logmeout(){
     signOut(auth).then(() => {
+      console.log(name);
       console.log("Logged Out");
-      setLog(1);
+      console.log(auth.user);
+
     }).catch((error) => {
     });
+
   }
+
+
+
+  onAuthStateChanged(auth,user => {
+
+    if (user) {
+        // signed in
+        console.log('user innn');
+        setname(auth.currentUser.displayName);
+        seturl(auth.currentUser.photoURL);
+        setLog(0);
+    } else {
+        // not signed in
+        console.log('user out');
+        setLog(1);
+    }
+});
 
   return (
     <>

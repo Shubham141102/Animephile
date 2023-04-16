@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Image from "next/image";
 import arrowsvg from './assests/arrow_forward_FILL0_wght400_GRAD0_opsz48.svg'
 import { Megrim } from 'next/font/google'
+import Applogo from "./applogo";
 const megrim = Megrim({ 
     weight: '400',
     subsets: ['latin'],
@@ -14,13 +15,10 @@ export default function Login(props){
 
   }
 
-  
-
-
     return (
         <div className={styles.container}>
             <div className={styles.card}>
-                <span className={ megrim.className} id={styles.logoanime}>ANIMEPHILE</span>
+                <Applogo />
                 <p className={styles.card__content}>Get Reminders for Lates episodes releases.
                 </p>
                 <div className={styles.card__form}>
