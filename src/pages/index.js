@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Navbar from './components/Navbar'
 import Recent from './components/Recent'
-import Recentcard from './components/Recentcard'
+import News from './components/News'
 const inter = Inter({ subsets: ['latin'] })
 import { useState } from 'react'
 import Login from './components/loginpage'
@@ -102,6 +102,7 @@ export default function Home() {
       <>
         <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
         <Recent />
+        <News/>
       </>
     }
     

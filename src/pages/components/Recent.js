@@ -8,8 +8,11 @@ export default  function Recent(){
         )
     })
     return(
+        <>
+        <h1 className={styles.sectionheading}>Top trending</h1>
         <div className={styles.recentcontainer}>
            {cards}
         </div>
+        </>
     )
 }

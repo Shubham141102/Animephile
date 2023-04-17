@@ -326,6 +326,8 @@
     z-index : 1;
     position : relative;
     border:2px solid black;
+    box-shadow:  5px 5px 10px #d9d9d9,
+             -5px -5px 10px #ffffff;
 }
 
 .cardblur{
@@ -337,7 +339,7 @@
   position :absolute;
   border-radius : 0px 0px 20px 20px;
   background: rgba( 255, 255, 255, 0.25 );
-/* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 5.5px );
 -webkit-backdrop-filter: blur( 5.5px );
 border: 1px solid rgba( 255, 255, 255, 0.18 );
@@ -410,4 +412,55 @@ grid-template-columns : 3fr 1fr;
 
 .hiuser{
   font-size: 16px;
+}
+
+
+.newscard{
+  /* border:2px solid black; */
+  padding:1.2em;
+  border-radius:1em;
+  width:24em;
+  height:6em;
+  box-shadow:  5px 5px 10px #d9d9d9,
+             -5px -5px 10px #ffffff;
+  overflow:auto;
+  position: relative; 
+  
+}
+
+.newscard h1{
+  font-size:1.2em;
+  font-weight:900;
+  padding:0;
+}
+.newscard p{
+  font-weight:600;
+}
+
+.newscard::before{
+  content: "";
+  background-image: url('../../public/news.png');
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.3;
+  z-index:-1;
+}
+
+.newscontainer{
+  display:grid;
+  grid-template-columns: auto auto auto;
+  gap:1em;
+  font-family:sans-serif;
+  /* border:2px solid black; */
+  padding:1.5em;
+  overflow:auto;
+}
+.sectionheading{
+  padding-left:1em;
+  margin-bottom:0; 
+  padding-bottom:0;
 }
