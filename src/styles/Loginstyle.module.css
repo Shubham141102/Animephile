@@ -61,7 +61,7 @@
     border: 0;
     background: #111;
     color: #fff;
-    padding: 0.68em;
+    padding-left: 0.68em;
     border-radius: 14px;
     font-weight: bold;
   }
@@ -75,4 +75,12 @@
     font-size: 35px;
     font-weight: 800;
     color: #333;
+  }
+
+  .button__content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 0.5em;
+    padding:0;
   }

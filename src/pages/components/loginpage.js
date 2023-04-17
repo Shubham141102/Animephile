@@ -22,7 +22,12 @@ export default function Login(props){
                 <p className={styles.card__content}>Get Reminders for Lates episodes releases.
                 </p>
                 <div className={styles.card__form}>
-                    <button className={styles.signup} id="googlebtn" onClick={func1}> Login with Google <Image src={arrowsvg} alt="->" height={22}  color="white"/></button>
+                    <button className={styles.signup} id="googlebtn" onClick={func1}> 
+                        <div className={styles.button__content}>
+                            <p>Login with Google</p> 
+                            <Image src={arrowsvg} alt="->" height={22}  color="white"/>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
