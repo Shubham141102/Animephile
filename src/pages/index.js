@@ -21,7 +21,7 @@ import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged }
 export default function Home() {
   const [islogedin, setLog] = useState(1);
   const [username, setname] = useState("User");
-  const [prourl, seturl] = useState("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png");
+  const [prourl, seturl] = useState("./assests/defaultprofile.webp");
 
   const firebaseConfig = {
     apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",

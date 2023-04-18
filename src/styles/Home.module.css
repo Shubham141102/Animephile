@@ -316,6 +316,11 @@
   gap:1em;
 }
 
+.recentcardbackground{
+  height : 90%;
+    width : 200px ;
+}
+
 .recentcard{
     height : 90%;
     width : 200px ;
@@ -328,6 +333,7 @@
     border:2px solid black;
     box-shadow:  5px 5px 10px #d9d9d9,
              -5px -5px 10px #ffffff;
+    cursor: pointer;
 }
 
 .cardblur{
