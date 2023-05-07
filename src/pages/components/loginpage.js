@@ -1,5 +1,4 @@
 import styles from "@/styles/Loginstyle.module.css";
-import { useState } from 'react'
 import Image from "next/image";
 import arrowsvg from './assests/arrow_forward_FILL0_wght400_GRAD0_opsz48.svg'
 import { Megrim } from 'next/font/google'

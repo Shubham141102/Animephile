@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mateoaranda/jikanjs": "^1.2.4",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "firebase": "^9.19.1",
