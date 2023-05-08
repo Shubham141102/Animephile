@@ -1,7 +1,15 @@
 const jikanjs = require('@mateoaranda/jikanjs');
-res = async ()=>{return  jikanjs.loadAnime(31240, 'episodes', 15);}
-data = res
-console.log(data)
+
+
+var res
+var resData = {}
+const getUser = async () => {
+
+    const response = await jikanjs.loadAnime(31240, 'episodes', 15);
+    return response
+}
+res = getUser()
+export default res
 // export default [
 //     {
 //         title: "Attack on Titan",

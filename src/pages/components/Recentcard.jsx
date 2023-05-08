@@ -17,7 +17,7 @@ export default  function Recentcard(props){
                 <div className={styles.cardblur}>
                     <div className={styles.cardhead}>
                         <p className={styles.cardheader}>{props.item.title}</p>
-                        <p className={styles.cardsubheader}>{props.item.episode}</p>
+                        <p className={styles.cardsubheader}>{props.item.mal_id}</p>
                     </div>
                     <div className={styles.cardplay}>
                         <div className={styles.playbutton}>
