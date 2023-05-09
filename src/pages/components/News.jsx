@@ -1,8 +1,24 @@
 import styles from "@/styles/Home.module.css"
 import Newscard from "./Newscard"
-import newsData from "./newsData"
+// import newsData from "./newsData"
+import res from "./newsData";
+import { useState, useEffect, useRef } from "react";
 export default  function News(){
-    const cards = newsData.map(item => {
+
+    useEffect(() => {
+        setTimeout(() => {
+            getManga(); 
+        }, 2000)
+      }, [])
+
+    const [stateNews, setStateNews] =  useState([])
+    const getManga = async () => {
+        const resp = await fetch(`https://api.jikan.moe/v4/manga`).then(
+            (res) => res.json()
+          );
+        setStateNews(resp.data);
+    }
+    const cards = stateNews?.map(item => {
         return (
             <Newscard item={item}/>
         )

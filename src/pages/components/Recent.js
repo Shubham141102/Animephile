@@ -6,13 +6,13 @@ import { useState, useEffect, useRef } from "react";
 
 export default function Recent(){
 
-
+    //get top anime from api
     useEffect(() => {
-        getUser();
+        getTopAnime();
       }, [])
 
     const [state, setState] =  useState([])
-    const getUser = async () => {
+    const getTopAnime = async () => {
         const response = await fetch(`https://api.jikan.moe/v4/top/anime`).then(
             (res) => res.json()
           );
@@ -20,7 +20,7 @@ export default function Recent(){
     }
 
 
-
+    //scroll section
     const scrollRef = useRef(null);
     const [scrollLeft, setScrollLeft] = useState(0);
     const [scrollInterval, setScrollInterval] = useState(null);
@@ -69,10 +69,8 @@ export default function Recent(){
         scrollRef.current.scrollLeft += 600;
     };
 
-
-
-
-    const cards = state.map(item => {
+    //mapping data to cards
+    const cards = state?.map(item => {
         return (
             <Recentcard item={item}/>
         )
@@ -90,7 +88,6 @@ export default function Recent(){
                     onMouseLeave={handleResumeScroll}
                     >
                     {cards}
-                    {/* <Recentcard item={state}/> */}
                     </div>
                     <div className={styles.buttons}>
                         <button onClick={handleScrollLeft} disabled={isHovering || scrollLeft <= 0}>

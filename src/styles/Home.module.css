@@ -395,7 +395,7 @@
   height:6em;
   box-shadow:  5px 5px 10px #d9d9d9,
              -5px -5px 10px #ffffff;
-  overflow:auto;
+  overflow:hidden;
   position: relative; 
   
 }
@@ -411,7 +411,7 @@
 
 .newscard::before{
   content: "";
-  background-image: url('../../public/news.png');
+  /* background-image: url('../../public/news.png'); */
   background-size: cover;
   position: absolute;
   top: 0px;
@@ -429,7 +429,7 @@
   font-family:sans-serif;
   /* border:2px solid black; */
   padding:1.5em;
-  overflow:auto;
+  overflow:hidden;
 }
 .sectionheading{
   padding-left:1em;

@@ -19,7 +19,8 @@ export default function Home() {
   const [islogedin, setLog] = useState(1);
   const [username, setname] = useState("User");
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
-
+  const [stateRecent, setStateRecent] = useState([])
+  const [stateNews, setStateNews] = useState([])
   const firebaseConfig = {
     apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
     authDomain: "animephile-a28c7.firebaseapp.com",
