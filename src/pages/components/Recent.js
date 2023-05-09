@@ -17,7 +17,7 @@ export default function Recent(){
     const [state, setState] =  useState([])
     const getUser = async () => {
         // const response = await jikanjs.loadAnime(31240, 'episodes', 15);
-        const response = await fetch(`https://api.jikan.moe/v4/anime`).then(
+        const response = await fetch(`https://api.jikan.moe/v4/top/anime`).then(
             (res) => res.json()
           );
         // res = await response.json()

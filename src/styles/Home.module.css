@@ -322,7 +322,7 @@
   /* -webkit-overflow-scrolling: touch; */
   /* white-space: nowrap; */
   overflow: scrolling;
-  animation: scroll 30s linear infinite;
+  animation: scroll 300s linear infinite;
 }
 
 @keyframes scroll {
@@ -330,7 +330,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-1000%);
   }
 }
 
