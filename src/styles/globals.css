@@ -113,4 +113,8 @@ body {
   padding:0;
   height:100%;
   font-family:sans-serif;
+  
+}
+body::-webkit-scrollbar{
+  display:none;
 }
