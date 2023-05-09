@@ -23,7 +23,7 @@ export default  function Recentcard(props){
                         <div className={styles.card__info}>
                             <h1 className={styles.card__title}>{props.item.title}</h1>
                         
-                            <p className={styles.card__slug}>{props.item.synopsis.slice(0,200)}</p>
+                            <p className={styles.card__slug}>{props.item.synopsis.slice(0,200)}...</p>
                         
                             <a href={props.item.trailer.url} target="_blank">
                                 <button className={styles.card__btn} value="Watch trailer" >Watch trailer</button>

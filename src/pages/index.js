@@ -8,6 +8,7 @@ import Login from './components/loginpage'
 import { initializeApp } from 'firebase/app';
 
 import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
+import { getDatabase, ref, set } from "firebase/database";
 
 
 
@@ -19,22 +20,27 @@ export default function Home() {
   const [islogedin, setLog] = useState(1);
   const [username, setname] = useState("User");
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
-  const [stateRecent, setStateRecent] = useState([])
-  const [stateNews, setStateNews] = useState([])
+  const [stateRecent, setStateRecent] = useState([]);
+  const [stateNews, setStateNews] = useState([]);
+
   const firebaseConfig = {
     apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
     authDomain: "animephile-a28c7.firebaseapp.com",
+    databaseURL: "https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "animephile-a28c7",
     storageBucket: "animephile-a28c7.appspot.com",
     messagingSenderId: "269230750335",
     appId: "1:269230750335:web:bd8b2a840d3d4305535d4a"
   };
+  
+  
 
   var a = true;
   
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  const database = getDatabase();
   var name = {};
   console.log(name);
 
@@ -73,8 +79,16 @@ export default function Home() {
 
   }
 
+
+  function writeUserData( email,title) {
+    const db = getDatabase();
+    set(ref(db, 'users/' + title), {
+      email
+    });
+  }
+
   function savemyfollow(title){
-    console.log("SAVING",title);
+    writeUserData(auth.currentUser.email,title);
   }
 
 
