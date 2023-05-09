@@ -4,7 +4,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 
-export default function Recent(){
+export default function Recent(props){
 
     //get top anime from api
     useEffect(() => {
@@ -72,7 +72,7 @@ export default function Recent(){
     //mapping data to cards
     const cards = state?.map(item => {
         return (
-            <Recentcard item={item}/>
+            <Recentcard item={item} savemyfollow={props.savemyfollow}/>
         )
     })
         

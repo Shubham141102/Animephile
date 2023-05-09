@@ -73,6 +73,9 @@ export default function Home() {
 
   }
 
+  function savemyfollow(title){
+    console.log("SAVING",title);
+  }
 
 
   onAuthStateChanged(auth,user => {
@@ -99,7 +102,7 @@ export default function Home() {
      : 
       <>
         <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
-        <Recent />
+        <Recent savemyfollow={savemyfollow} />
         <News/>
       </>
     }

@@ -5,9 +5,14 @@ export default  function Recentcard(props){
     function popup(){
         
     }
-    const url = props.item.images.jpg.image_url
+    const url = props.item.images.jpg.image_url;
     const myStyle = {
         background: `url(${url}) no-repeat`
+    }
+    const tit = props.item.title;
+
+    function followit(){
+        props.savemyfollow(tit);
     }
    
     return(
@@ -20,12 +25,14 @@ export default  function Recentcard(props){
                         
                             <p className={styles.card__slug}>{props.item.synopsis.slice(0,200)}</p>
                         
-                            <a href={props.item.trailer.url}>
+                            <a href={props.item.trailer.url} target="_blank">
                                 <button className={styles.card__btn} value="Watch trailer" >Watch trailer</button>
                             </a>
+                            <button onClick={() => {followit()}} className={styles.card__btn2} value="follow" >Follow</button>
+                            
 
                             <div className={styles.card__rating}>
-                                {props.item.score}
+                                Rating : {props.item.score}
                             </div>
                         </div>
                     </main>
