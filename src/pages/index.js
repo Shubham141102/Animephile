@@ -8,7 +8,8 @@ import Login from './components/loginpage'
 import { initializeApp } from 'firebase/app';
 
 import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, push, orderByKey, orderByValue,orderByChild,get,child } from "firebase/database";
+import { usePathname } from 'next/navigation'
 
 
 
@@ -40,7 +41,7 @@ export default function Home() {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  const database = getDatabase();
+  const db = getDatabase();
   var name = {};
   console.log(name);
 
@@ -80,6 +81,7 @@ export default function Home() {
   }
 
 
+
   function writeUserData( email,title) {
     const db = getDatabase();
     set(ref(db, 'users/' + title), {
@@ -87,8 +89,49 @@ export default function Home() {
     });
   }
 
+  function appendData(email, title){
+    const postListRef = ref(db, 'users/' + title);
+    const newPostRef = push(postListRef);
+    set(newPostRef, {
+        "email" : email
+    });
+  }
+
+
+  function searchData(email,title){
+
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, 'users/'+title)).then((snapshot) => {
+      if (snapshot.exists()) {
+       
+        const data = snapshot.val();
+        for (const key in data){
+          if(data.hasOwnProperty(key)){
+            if(data[key].email === email){
+              return false;
+            }
+          }
+        }
+          // console.log("data email adding ");
+          appendData(auth.currentUser.email,title);
+          return true;
+      } else {
+        // console.log("No data available and adding new data ");
+        appendData(auth.currentUser.email,title);
+        return true;
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
+  
+  }
+
   function savemyfollow(title){
-    writeUserData(auth.currentUser.email,title);
+    if(searchData(auth.currentUser.email,title)){
+      console.log("data added")
+    }else{
+      console.log("email already present")
+    }
   }
 
 
