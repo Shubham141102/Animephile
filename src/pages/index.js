@@ -8,23 +8,15 @@ const inter = Inter({ subsets: ['latin'] })
 import { useState } from 'react'
 import Login from './components/loginpage'
 import { initializeApp } from 'firebase/app';
-
 import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
 import { getDatabase, ref, set, push, orderByKey, orderByValue,orderByChild,get,child } from "firebase/database";
 import { usePathname } from 'next/navigation'
-
-
-
-
-
 
 
 export default function Home() {
   const [islogedin, setLog] = useState(1);
   const [username, setname] = useState("User");
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
-  const [stateRecent, setStateRecent] = useState([]);
-  const [stateNews, setStateNews] = useState([]);
   const [isimp, setisImp] = useState(false);
 
   const firebaseConfig = {
@@ -58,7 +50,7 @@ export default function Home() {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
-      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjaindh@gmail.com'){
+      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjainhd@gmail.com'){
         setisImp(true);
       }
       name = user;
@@ -103,8 +95,8 @@ export default function Home() {
         // not signed in
         console.log('user out');
         setLog(1);
-    }
-});
+      }
+  });
 
 
   // -------DATABASED FUNCTIONS ----------------------
@@ -159,7 +151,25 @@ export default function Home() {
       console.log("email already present")
     }
   }
+  
 
+  const sendEmailToUser = async (recipientEmail, subject) => {
+    // event.preventDefault();
+
+    const response = await fetch('/api/sendEmail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ recipientEmail, subject}),
+    });
+
+    if (response.ok) {
+      console.log('Email sent successfully');
+    } else {
+      console.error('Error sending email');
+    }
+  };
 
 
 function sendEmail(list,database){
@@ -172,7 +182,10 @@ function sendEmail(list,database){
         for(const timestamp in database[name]){
           for(const emails in database[name][timestamp]){
             // console.log(database[name][timestamp].email);
-            console.log("Sending emails on : ",database[name][timestamp].email," for : ",name)
+            console.log("Sending emails on : ",database[name][timestamp].email," for : ",name)  
+            var email = database[name][timestamp].email         
+            // Call the sendEmail function to send an email
+            sendEmailToUser(email, name);  
           }
         }
         
