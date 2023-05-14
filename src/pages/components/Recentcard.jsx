@@ -1,5 +1,5 @@
 import styles from "@/styles/RecentCard.module.scss"
-import style from "@/styles/Home.module.css"
+import style from "@/styles/Home.module.scss"
 export default  function Recentcard(props){
 
     function popup(){
@@ -18,11 +18,13 @@ export default  function Recentcard(props){
     return(
         <div className={style.recentcard}>
             <div className={styles.card}>
-                <div className={styles.card__inner} style={myStyle}></div>
+                <div className={styles.card__inner} style={myStyle}>                    \
+                    {/* <div className={styles.filter}></div> */}
+                </div>
                 <main className={styles.card__body}>
                         <h1 className={styles.card__title}>{props.item.title}</h1>
                     
-                        <p className={styles.card__slug}>{props.item.synopsis.slice(0,200)}...</p>
+                        <p className={styles.card__slug}>{props.item.synopsis.slice(0,100)}...</p>
                     
                         <a href={props.item.trailer.url} target="_blank">
                             <button className={styles.card__btn} value="Watch trailer" >Watch trailer</button>

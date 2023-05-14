@@ -1,5 +1,5 @@
 import styles from "@/styles/RecentCard.module.scss"
-import style from "@/styles/Home.module.css"
+import style from "@/styles/Home.module.scss"
 export default  function AiringCard(props){
 
     function popup(){

@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css"
+import styles from "@/styles/Home.module.scss"
 import Newscard from "./Newscard"
 import { useState, useEffect, useRef } from "react";
 export default  function News(){

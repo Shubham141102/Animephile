@@ -51,7 +51,7 @@ export default function Check(props){
 
     return (
         <div className={styles.container}>
-            <button onClick={func1}>Check Updates</button>
+            <button onClick={func1} className={styles.logoutbtn}>Check Updates</button>
         </div>
     );
 }

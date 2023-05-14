@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css"
+import styles from "@/styles/Home.module.scss"
 import AiringCard from "./AiringCard";
 import React from "react";
 import { useState, useEffect, useRef } from "react";

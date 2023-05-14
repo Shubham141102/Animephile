@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.scss";
 import Applogo from "./applogo";
 import Search from "./Search";
 export default function Navbar (props){

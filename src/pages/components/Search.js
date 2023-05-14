@@ -1,4 +1,4 @@
-import styles from "@/styles/Home.module.css"
+import styles from "@/styles/Home.module.scss"
 import { useState, useEffect } from "react";
 import getSearch from "../api/getSearch";
 import {fetchData} from "../utils/getData"

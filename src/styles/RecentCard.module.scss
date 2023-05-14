@@ -10,7 +10,7 @@
   
   // Colors
   $color-black: #212121;
-  $color-primary: #c62828;// red
+  $color-primary: #88d317;// red
   
   // Variables
   $boxshadow-0: 0 1px 3px rgba(0, 0, 0, .13),
@@ -28,8 +28,8 @@
     margin-right: auto;
     margin-left: auto;
     overflow: scroll;
-    width: remy(600px);
-    height: remy(340px);
+    width: remy(550px);
+    height: remy(280px);
     background: rgb(10,10,10);
     border-radius: $radius;
     box-shadow: $boxshadow-2;
@@ -43,7 +43,6 @@
   }
 
   .card__inner {
-    background-color: #c62828;
     height: 100%;
     width: 40%;
     background-size: cover;
@@ -53,8 +52,9 @@
   .card__body {
     height: 100%;
     width: 60%;
-    color: white;
+    color: #ece5ec;
     padding: 10px 30px 10px 30px;
+    background-color: #6c3667;
   }
   
   
@@ -66,7 +66,8 @@
   }
   
   .filter{
-    background: linear-gradient(90deg,rgba(255, 255, 255, 0),rgba(10, 10, 10, 0.336),rgb(10, 10, 10));
+    // background: linear-gradient(90deg,rgba(255, 255, 255, 0),#6c3667a1,#6c3667);
+    background-color: #26262686;
     height: 100%;
     width: 100%;
     position: absolute;
@@ -85,7 +86,7 @@
     font-weight: 600;
     letter-spacing: remy(1px);
     text-transform: uppercase;
-    color: #fff;
+    color: #262626;
     background: $color-primary;
     border: 0;
     border-radius: remy(35px);
@@ -94,7 +95,7 @@
     
     &:focus,
     &:hover {
-      color: #fff;
+      color: #262626;
       background: lighten($color-primary, 13%);
       box-shadow: $boxshadow-3;
     }
@@ -108,7 +109,7 @@
     font-weight: 600;
     letter-spacing: remy(1px);
     text-transform: uppercase;
-    color: #fff;
+    color: #262626;
     background: $color-primary;
     border: 0;
     border-radius: remy(35px);
@@ -119,13 +120,14 @@
     
     &:focus,
     &:hover {
-      color: #fff;
+      color: #262626;
       background: lighten($color-primary, 13%);
       box-shadow: $boxshadow-3;
     }
 
     &:focus{
-      background-color: greenyellow;
+      background-color: #262626;
+      color:white;
     }
 
     

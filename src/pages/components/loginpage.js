@@ -3,6 +3,7 @@ import Image from "next/image";
 import arrowsvg from './assests/arrow_forward_FILL0_wght400_GRAD0_opsz48.svg'
 import { Megrim } from 'next/font/google'
 import Applogo from "./applogo";
+// import Pattern from './assests/pattern.jpg';
 const megrim = Megrim({ 
     weight: '400',
     subsets: ['latin'],
