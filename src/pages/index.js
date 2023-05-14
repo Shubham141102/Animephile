@@ -162,6 +162,61 @@ export default function Home() {
 
 
 
+function sendEmail(list,database){
+  console.log(database)
+  console.log(list);
+
+  for(let a in list){
+    for (const name in database){
+      if(name === list[a]){
+        for(const timestamp in database[name]){
+          for(const emails in database[name][timestamp]){
+            // console.log(database[name][timestamp].email);
+            console.log("Sending emails on : ",database[name][timestamp].email," for : ",name)
+          }
+        }
+        
+      }
+    }
+  }
+
+
+
+
+}
+
+let entireDb ;
+// ---------------CHECKING WHAT MATCHES WITH TODAY UPDATE--------------------
+  function sendUpdate(list){
+    let toSendUpdateList = [];
+
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, 'users/')).then((snapshot) => {
+      if (snapshot.exists()) {
+       
+        const data = snapshot.val();
+        entireDb = data;
+        for (const key in data){
+          if(data.hasOwnProperty(key)){
+            for(let a in list){
+              if(list[a] === key){
+                toSendUpdateList.push(key);
+              }
+            }
+          }
+        }
+      }
+      sendEmail(toSendUpdateList,entireDb)
+    }).catch((error) => {
+      console.error(error);
+    });
+
+    
+
+  }
+
+
+
 
   return (
     <>
@@ -175,7 +230,7 @@ export default function Home() {
           isimp ?
           <>
             <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
-            <Check />
+            <Check sendUpdate={sendUpdate}/>
             <Recent savemyfollow={savemyfollow} />
             <Airingtoday savemyfollow={savemyfollow} />
             <News/>

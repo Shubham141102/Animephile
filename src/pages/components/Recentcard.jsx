@@ -5,7 +5,7 @@ export default  function Recentcard(props){
     function popup(){
         
     }
-    const url = props.item.images.jpg.large_image_url;
+    const url = props.item.images.webp.large_image_url;
     const myStyle = {
         backgroundImage: `url(${url})`
     }

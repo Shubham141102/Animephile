@@ -311,11 +311,10 @@
   /* height : 200px; */
   display: flex;
   align-items : center;
-  justify-contents : space-between;
+   justify-content: space-between;
   padding:1.5em;
   gap:1em;
   overflow-x: scroll;
-  /* animation: scroll 300s linear infinite; */
 }
 
 @keyframes scroll {
@@ -333,6 +332,7 @@
 .recentcardbackground{
   /* height : 90%; */
     width : 200px ;
+    
 }
 
 .recentcard{
@@ -343,6 +343,7 @@
     box-shadow:  5px 5px 10px #d9d9d9,
              -5px -5px 10px #ffffff;
     cursor: pointer;
+
 }
 
 .buttons {
@@ -365,6 +366,7 @@
   flex-direction:column;
   align-items:center;
   padding-left:3em;
+
 }
 
 .logoutbtn{
