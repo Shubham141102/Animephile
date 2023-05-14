@@ -1,33 +1,26 @@
 import styles from "@/styles/Home.module.css"
 import { useState, useEffect } from "react";
 import getSearch from "../api/getSearch";
+import {fetchData} from "../utils/getData"
 export default function Search() {
-
-    
-    // useEffect(() => {
-    //     getSearch();
-    //   }, [])
-
-    const [state, setState] =  useState([])
     const [param, setParam] = useState()
-    // const getSearch = async () => {
-    //     const response = await fetch(`https://api.jikan.moe/v4/anime/?letter=demon`).then(
-    //         (res) => res.json()
-    //       );
-    //     setState(response.data);
-    // }
-
-
-    const getUpdate = (para) => {
-        setParam(para)
-        // getSearch()
-    }
-    getSearch()
-    console.log(param)
-    console.log(state)
+    const [data, setData] = useState(null);
+    useEffect(() => {
+        async function getData() {
+          try {
+            const response = await fetchData();
+            setData(response);
+          } catch (error) {
+            console.error('Error fetching data:', error);
+          }
+        }
+    
+        getData();
+      }, []);
+    console.log(data)
     return (
         <>
-            <input placeholder="Enter your Search" type='search' className={styles.search} onChange={(event) => {getUpdate(event.target.value)}}/>
+            <input placeholder="Enter your Search" type='search' className={styles.search} onChange={(event) => {setParam(event.target.value)}}/>
         </>
     );
 }

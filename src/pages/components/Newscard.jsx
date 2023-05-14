@@ -8,7 +8,6 @@ export default  function Newscard(props){
     return(
         <>
         <div className={styles.newscard} style={myStyle}>
-        {/* <img src="./news.png" className={styles.newsback}></img> */}
             <h1>{props.item.title_english}</h1>
             <div>
                 <p>{props.item.synopsis.slice(0,200)}</p>

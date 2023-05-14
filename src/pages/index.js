@@ -1,16 +1,13 @@
-import { Inter } from 'next/font/google'
 import Navbar from './components/Navbar'
 import Recent from './components/Recent'
 import News from './components/News';
 import Check from './components/check';
 import Airingtoday from './components/Airingtoday';
-const inter = Inter({ subsets: ['latin'] })
 import { useState } from 'react'
 import Login from './components/loginpage'
 import { initializeApp } from 'firebase/app';
 import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, set, push, orderByKey, orderByValue,orderByChild,get,child } from "firebase/database";
-import { usePathname } from 'next/navigation'
+import { getDatabase, ref, set, push, get,child } from "firebase/database";
 
 
 export default function Home() {

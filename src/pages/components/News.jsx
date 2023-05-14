@@ -1,7 +1,5 @@
 import styles from "@/styles/Home.module.css"
 import Newscard from "./Newscard"
-// import newsData from "./newsData"
-import res from "./newsData";
 import { useState, useEffect, useRef } from "react";
 export default  function News(){
 
