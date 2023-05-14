@@ -4,7 +4,7 @@ const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
       user: 'animephileupdates@gmail.com',
-      pass: 'Animephile@1446',
+      pass: 'kpappwgawkrrmbwp',
     },
 });
   
@@ -16,8 +16,7 @@ export default async function handler(req, res) {
         const mailOptions = {
             from: 'animephileupdates@gmail.com',
             to: recipientEmail,
-            subject: subject,
-            text: text,
+            subject: subject
         };
 
         await transporter.sendMail(mailOptions);

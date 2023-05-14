@@ -83,7 +83,7 @@ export default function Home() {
   onAuthStateChanged(auth,user => {
 
     if (user) {
-      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjaindh@gmail.com'){
+      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjainhd@gmail.com'){
         setisImp(true);
       }
         // signed in

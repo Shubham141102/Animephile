@@ -1,5 +1,6 @@
 import styles from "@/styles/Home.module.css"
 import { useState, useEffect } from "react";
+import getSearch from "../api/getSearch";
 export default function Search() {
 
     
@@ -9,12 +10,14 @@ export default function Search() {
 
     const [state, setState] =  useState([])
     const [param, setParam] = useState()
-    const getSearch = async () => {
-        const response = await fetch(`https://api.jikan.moe/v4/anime/?letter=demon`).then(
-            (res) => res.json()
-          );
-        setState(response.data);
-    }
+    // const getSearch = async () => {
+    //     const response = await fetch(`https://api.jikan.moe/v4/anime/?letter=demon`).then(
+    //         (res) => res.json()
+    //       );
+    //     setState(response.data);
+    // }
+
+
     const getUpdate = (para) => {
         setParam(para)
         // getSearch()
@@ -24,7 +27,7 @@ export default function Search() {
     console.log(state)
     return (
         <>
-            <input placeholder="Enter your Search" type='search' className={styles.search} onChange={() => {getUpdate(event.target.value)}}/>
+            <input placeholder="Enter your Search" type='search' className={styles.search} onChange={(event) => {getUpdate(event.target.value)}}/>
         </>
     );
 }
