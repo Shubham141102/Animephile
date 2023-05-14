@@ -1,5 +1,6 @@
 import styles from "@/styles/Home.module.css";
 import Applogo from "./applogo";
+import Search from "./Search";
 export default function Navbar (props){
 
     function logoutme(){
@@ -10,8 +11,7 @@ export default function Navbar (props){
         <div className={styles.container}>
             <nav>
                 <Applogo />
-                {/* <img src="logo.png" className={styles.logo}></img> */}
-                <input placeholder="Enter your Search" type='search' className={styles.search}/>
+                <Search />
                 <p className={styles.hiuser} >Welcome, {props.displayname}</p>
                 <button className={styles.logoutbtn} onClick={logoutme}>LogOut</button>
                 <img src={props.profileurl} className={styles.profile}></img>

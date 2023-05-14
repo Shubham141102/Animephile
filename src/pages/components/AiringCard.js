@@ -23,7 +23,7 @@ export default  function AiringCard(props){
                 </div>
                 <main className={styles.card__body}>
                     <div className={styles.card__info}>
-                        <h1 className={styles.card__title}>{props.item.title}</h1>
+                        <h1 className={styles.card__title}>{(props.item.title_english) ? props.item.title_english : props.item.title}</h1>
                                             
                         {/* <a href={props.item.trailer.url} target="_blank">
                             <button className={styles.card__btn} value="Watch trailer" >Watch trailer</button>

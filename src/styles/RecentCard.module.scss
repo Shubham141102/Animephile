@@ -38,6 +38,10 @@
     
   }
 
+  .card::-webkit-scrollbar {
+    display: none;
+  }
+
   .card__inner {
     background-color: #c62828;
     height: 100%;
