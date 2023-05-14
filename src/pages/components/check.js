@@ -9,34 +9,20 @@ const megrim = Megrim({
 export default function Check(props){
   const [schedule, setSchedule] =  useState([])
 
-  const d = new Date();
-  let day = d.getDay();
   var days = "";
   let titlearray = [];
   
   function sendRequest(list){
     props.sendUpdate(list);
   }
+  const d = new Date();
+  let day = d.getDay();
+  let dayslist = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
 
   const getShedule = async () => {
-    if(day === 0){
-      days = 'sunday'
-    }else if(day ===1 ){
-      days === 'monday'
-    }else if(day ===2 ){
-      days === 'tuesday'
-    }else if(day ===3 ){
-      days === 'wednesday'
-    }else if(day ===4 ){
-      days === 'thursday'
-    }else if(day ===5 ){
-      days === 'friday'
-    }else if(day ===6 ){
-      days === 'saturday'
-    }
-    const response = await fetch(`https://api.jikan.moe/v4/schedules/${days}`).then(
-          (res) => res.json()
-        );
+    const response = await fetch(`https://api.jikan.moe/v4/schedules/${dayslist[day]}`).then(
+            (res) => res.json()
+          );
         setSchedule(response.data);
         console.log(response.data)
     for(let i in response.data){
