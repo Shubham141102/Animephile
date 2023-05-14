@@ -1,7 +1,9 @@
 import { Inter } from 'next/font/google'
 import Navbar from './components/Navbar'
 import Recent from './components/Recent'
-import News from './components/News'
+import News from './components/News';
+import Check from './components/check';
+import Airingtoday from './components/Airingtoday';
 const inter = Inter({ subsets: ['latin'] })
 import { useState } from 'react'
 import Login from './components/loginpage'
@@ -23,6 +25,7 @@ export default function Home() {
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
   const [stateRecent, setStateRecent] = useState([]);
   const [stateNews, setStateNews] = useState([]);
+  const [isimp, setisImp] = useState(false);
 
   const firebaseConfig = {
     apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
@@ -45,6 +48,8 @@ export default function Home() {
   var name = {};
   console.log(name);
 
+
+  // ---------------AUTHENTICATION--------------
   function logmein(){
     console.log("logging you in");
     signInWithPopup(auth, provider)
@@ -53,6 +58,9 @@ export default function Home() {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
       const user = result.user;
+      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjaindh@gmail.com'){
+        setisImp(true);
+      }
       name = user;
       console.log("---------------------");
       console.log(name);
@@ -74,14 +82,32 @@ export default function Home() {
       console.log(name);
       console.log("Logged Out");
       console.log(auth.user);
-
+      setisImp(false)
     }).catch((error) => {
     });
 
   }
 
+  onAuthStateChanged(auth,user => {
+
+    if (user) {
+      if(user.email === 'pratham111ingole@gmail.com' || user.email === 'shubhamhippargi@gmail.com' || user.email === 'hiteshjaindh@gmail.com'){
+        setisImp(true);
+      }
+        // signed in
+        console.log('user innn');
+        setname(auth.currentUser.displayName);
+        seturl(auth.currentUser.photoURL);
+        setLog(0);
+    } else {
+        // not signed in
+        console.log('user out');
+        setLog(1);
+    }
+});
 
 
+  // -------DATABASED FUNCTIONS ----------------------
   function writeUserData( email,title) {
     const db = getDatabase();
     set(ref(db, 'users/' + title), {
@@ -135,20 +161,7 @@ export default function Home() {
   }
 
 
-  onAuthStateChanged(auth,user => {
 
-    if (user) {
-        // signed in
-        console.log('user innn');
-        setname(auth.currentUser.displayName);
-        seturl(auth.currentUser.photoURL);
-        setLog(0);
-    } else {
-        // not signed in
-        console.log('user out');
-        setLog(1);
-    }
-});
 
   return (
     <>
@@ -158,9 +171,24 @@ export default function Home() {
       </>
      : 
       <>
-        <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
-        <Recent savemyfollow={savemyfollow} />
-        <News/>
+        {
+          isimp ?
+          <>
+            <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
+            <Check />
+            <Recent savemyfollow={savemyfollow} />
+            <Airingtoday savemyfollow={savemyfollow} />
+            <News/>
+          </>
+          :
+          <>
+            <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
+            <Recent savemyfollow={savemyfollow} />
+            <Airingtoday savemyfollow={savemyfollow} />
+            <News/>
+          </>        
+          }
+        
       </>
     }
     </>

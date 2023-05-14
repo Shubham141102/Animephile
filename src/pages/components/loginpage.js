@@ -24,6 +24,7 @@ export default function Login(props){
                     <button className={styles.signup} id="googlebtn" onClick={func1}> 
                         <div className={styles.button__content}>
                             <p>Login with Google</p> 
+                            
                             <Image src={arrowsvg} alt="->" height={22}  color="white"/>
                         </div>
                     </button>

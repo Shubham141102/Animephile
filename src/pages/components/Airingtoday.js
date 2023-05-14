@@ -1,10 +1,10 @@
 import styles from "@/styles/Home.module.css"
-import Recentcard from "./Recentcard"
+import AiringCard from "./AiringCard";
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 
-export default function Recent(props){
+export default function Airingtoday(props){
 
     //get top anime from api
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function Recent(props){
 
     const [state, setState] =  useState([])
     const getTopAnime = async () => {
-        const response = await fetch(`https://api.jikan.moe/v4/top/anime`).then(
+        const response = await fetch(`https://api.jikan.moe/v4/schedules/sunday`).then(
             (res) => res.json()
           );
         setState(response.data);
@@ -72,13 +72,13 @@ export default function Recent(props){
     //mapping data to cards
     const cards = state?.map(item => {
         return (
-            <Recentcard item={item} savemyfollow={props.savemyfollow}/>
+            <AiringCard item={item} savemyfollow={props.savemyfollow}/>
         )
     })
         
         return(
             <>
-                <h1 className={styles.sectionheading}>Top Rated</h1>
+                <h1 className={styles.sectionheading}>Top Episodes Airing today</h1>
                 <div className={styles.container_recent}>
                     <div 
                     className={styles.recentcontainer}

@@ -1,6 +1,6 @@
 import styles from "@/styles/RecentCard.module.scss"
 import style from "@/styles/Home.module.css"
-export default  function Recentcard(props){
+export default  function AiringCard(props){
 
     function popup(){
         
@@ -18,23 +18,25 @@ export default  function Recentcard(props){
     return(
         <div className={style.recentcard}>
             <div className={styles.card}>
-                <div className={styles.card__inner} style={myStyle}></div>
+                <div className={styles.card__inner} style={myStyle}>
+                    <div className={styles.filter}></div>
+                </div>
                 <main className={styles.card__body}>
+                    <div className={styles.card__info}>
                         <h1 className={styles.card__title}>{props.item.title}</h1>
-                    
-                        <p className={styles.card__slug}>{props.item.synopsis.slice(0,200)}...</p>
-                    
-                        <a href={props.item.trailer.url} target="_blank">
+                                            
+                        {/* <a href={props.item.trailer.url} target="_blank">
                             <button className={styles.card__btn} value="Watch trailer" >Watch trailer</button>
-                        </a>
+                        </a> */}
                         <button onClick={() => {followit()}} className={styles.card__btn2} value="follow" >Follow</button>
                         
 
                         <div className={styles.card__rating}>
-                            Rating : {props.item.score}
+                            Broadcast    : {props.item.broadcast.string} (3:30 hrs ahead of IST)
                         </div>
+                    </div>
                 </main>
-                
+            
             </div>
         </div>
     )
