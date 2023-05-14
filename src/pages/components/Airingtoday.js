@@ -11,9 +11,13 @@ export default function Airingtoday(props){
         getTopAnime();
       }, [])
 
-    const [state, setState] =  useState([])
+    const [state, setState] =  useState([]);
+
+    const d = new Date();
+    let day = d.getDay();
+    let dayslist = ['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
     const getTopAnime = async () => {
-        const response = await fetch(`https://api.jikan.moe/v4/schedules/sunday`).then(
+        const response = await fetch(`https://api.jikan.moe/v4/schedules/${dayslist[day]}`).then(
             (res) => res.json()
           );
         setState(response.data);

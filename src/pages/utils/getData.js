@@ -1,6 +1,6 @@
 
 
-export async function fetchData() {
+export default async function fetchData() {
     const response = await fetch('/api/getSearch');
     if (response.ok) {
       const data = await response.json();
