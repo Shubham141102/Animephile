@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-  },
+  }, 
   "dependencies": {
     "@mateoaranda/jikanjs": "^1.2.4",
     "emailjs": "^4.0.2",

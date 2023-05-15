@@ -148,17 +148,25 @@
   background-color: #6c3667;
   overflow-y: scroll;
 }
-
+.newbox::-webkit-scrollbar {
+  display: none;
+}
+.newscontainer::-webkit-scrollbar {
+  display: none;
+}
 .newscard{
   height: 100%;
   width: 30%;
   background-size: cover;
 }
-
+.newscard::-webkit-scrollbar {
+  display: none;
+}
 .newstextbox{
   height: 100%;
   width: 70%;
 }
+
 .newheader{
   font-weight: 600;
   margin: 5px auto 5px 5px;
@@ -167,9 +175,10 @@
 .newtext{
   overflow-y: scroll;
   margin: 5px auto 5px 5px;
-
 }
-
+.newtext::-webkit-scrollbar {
+  display: none;
+}
 
 .newscontainer{
   display:grid;
