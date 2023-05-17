@@ -16,8 +16,8 @@ export default function Search() {
         }
     
         getData();
-      }, []);
-    console.log(data)
+        console.log(data)
+      }, []); 
     return (
         <>
             <input placeholder="Enter your Search" type='search' className={styles.search} onChange={(event) => {setParam(event.target.value)}}/>
