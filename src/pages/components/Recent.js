@@ -70,34 +70,37 @@ export default function Recent(props){
     };
 
     //mapping data to cards
-    const cards = state?.map(item => {
-        return (
-            <Recentcard item={item} savemyfollow={props.savemyfollow}/>
-        )
+    const cards = state?.map((item) => {
+        return <Recentcard item={item} savemyfollow={props.savemyfollow}/>
+
     })
-        
-        return(
-            <>
-                <h1 className={styles.sectionheading}>Top Rated</h1>
-                <div className={styles.container_recent}>
-                    <div 
-                    className={styles.recentcontainer}
-                    ref={scrollRef}
-                    onScroll={handleScroll}
-                    onMouseEnter={handlePauseScroll}
-                    onMouseLeave={handleResumeScroll}
-                    >
-                    {cards}
+        if(!state) {
+            return (<h1>loading</h1>)
+        } else {
+
+            return(
+                <>
+                    <h1 className={styles.sectionheading}>Top Rated</h1>
+                    <div className={styles.container_recent}>
+                        <div 
+                        className={styles.recentcontainer}
+                        ref={scrollRef}
+                        onScroll={handleScroll}
+                        onMouseEnter={handlePauseScroll}
+                        onMouseLeave={handleResumeScroll}
+                        >
+                        {cards}
+                        </div>
+                        <div className={styles.buttons}>
+                            <button onClick={handleScrollLeft} disabled={isHovering || scrollLeft <= 0}>
+                            {'<'}
+                            </button>
+                            <button onClick={handleScrollRight} >
+                            {'>'}
+                            </button>
+                        </div>
                     </div>
-                    <div className={styles.buttons}>
-                        <button onClick={handleScrollLeft} disabled={isHovering || scrollLeft <= 0}>
-                        {'<'}
-                        </button>
-                        <button onClick={handleScrollRight} >
-                        {'>'}
-                        </button>
-                    </div>
-                </div>
-            </>
-        )
+                </>
+            )
+        }
     }
