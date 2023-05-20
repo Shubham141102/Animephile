@@ -14,6 +14,7 @@ export default function Home() {
   const [islogedin, setLog] = useState(1);
   const [username, setname] = useState("User");
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
+  const [propemail, setEmail] = useState("htieshjain");
   const [isimp, setisImp] = useState(false);
 
   const firebaseConfig = {
@@ -65,6 +66,8 @@ export default function Home() {
       // ...
     });
   }
+  console.log("email........firebase...",propemail)
+  console.log("name........firebase...",username)
 
   function logmeout(){
     signOut(auth).then(() => {
@@ -87,6 +90,7 @@ export default function Home() {
         console.log('user innn');
         setname(auth.currentUser.displayName);
         seturl(auth.currentUser.photoURL);
+        setEmail(auth.currentUser.email)
         setLog(0);
     } else {
         // not signed in
@@ -95,7 +99,7 @@ export default function Home() {
       }
   });
 
-
+  console.log("set in auth..", propemail)
   // -------DATABASED FUNCTIONS ----------------------
   function writeUserData( email,title) {
     const db = getDatabase();
@@ -189,10 +193,6 @@ function sendEmail(list,database){
       }
     }
   }
-
-
-
-
 }
 
 let entireDb ;
@@ -239,7 +239,7 @@ let entireDb ;
         {
           isimp ?
           <>
-            <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
+            <Navbar logout={logmeout} displayname={username} profileurl={prourl} email={propemail}/>
             <Check sendUpdate={sendUpdate}/>
             <Recent savemyfollow={savemyfollow} />
             <Airingtoday savemyfollow={savemyfollow} />
@@ -247,7 +247,7 @@ let entireDb ;
           </>
           :
           <>
-            <Navbar logout={logmeout} displayname={username} profileurl={prourl}/>
+            <Navbar logout={logmeout} displayname={username} profileurl={prourl} email={propemail}/>
             <Recent savemyfollow={savemyfollow} />
             <Airingtoday savemyfollow={savemyfollow} />
             <News/>

@@ -8,5 +8,5 @@ export default async function fetchData() {
     } else {
       throw new Error('Failed to fetch data');
     }
-  }
+}
   
