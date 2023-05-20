@@ -1,7 +1,6 @@
 import styles from "@/styles/Home.module.scss";
 import Applogo from "./applogo";
 import Search from "./Search";
-import Link from "next/link";
 import { useRouter } from "next/router";
 export default function Navbar (props){
     function logoutme(){
@@ -15,13 +14,12 @@ export default function Navbar (props){
 
         router.push(
             {
-                pathname: '/followers',
+                pathname: '/following',
                 query:data,
             }
         );
     };
 
-    console.log("navbar.....email....",props.email)
     return (
         <div className={styles.container}>
             <nav>
@@ -29,7 +27,7 @@ export default function Navbar (props){
                 <Search />
                 <p className={styles.hiuser} >Welcome, {props.displayname}</p>
                 <button className={styles.logoutbtn} onClick={logoutme}>LogOut</button>
-                <button className={styles.logoutbtn} onClick={handleClick}>Followers</button>
+                <button className={styles.logoutbtn} onClick={handleClick}>Following</button>
                 
                 <img src={props.profileurl} className={styles.profile}></img>
             </nav>

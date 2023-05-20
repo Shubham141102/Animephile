@@ -5,10 +5,9 @@ import Check from './components/check';
 import Airingtoday from './components/Airingtoday';
 import { useState } from 'react'
 import Login from './components/loginpage'
-import { initializeApp } from 'firebase/app';
-import { getAuth,GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
-import { getDatabase, ref, set, push, get,child } from "firebase/database";
-
+import { GoogleAuthProvider,signInWithPopup,signOut,onAuthStateChanged } from "firebase/auth";
+import {ref, set, push, get,child } from "firebase/database";
+import database from './utils/getFirebase';
 
 export default function Home() {
   const [islogedin, setLog] = useState(1);
@@ -17,28 +16,15 @@ export default function Home() {
   const [propemail, setEmail] = useState("htieshjain");
   const [isimp, setisImp] = useState(false);
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDehGE5mZ_mtlgTCjGopCMa8wzyx2aip6E",
-    authDomain: "animephile-a28c7.firebaseapp.com",
-    databaseURL: "https://animephile-a28c7-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "animephile-a28c7",
-    storageBucket: "animephile-a28c7.appspot.com",
-    messagingSenderId: "269230750335",
-    appId: "1:269230750335:web:bd8b2a840d3d4305535d4a"
-  };
   
-  
-
   var a = true;
-  
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  const db = getDatabase();
   var name = {};
   console.log(name);
-
-
+  const DB = database();
+  const auth = DB.auth;
+  const db = DB.db;
+  const dbRef = DB.dbRef
   // ---------------AUTHENTICATION--------------
   function logmein(){
     console.log("logging you in");
@@ -101,12 +87,6 @@ export default function Home() {
 
   console.log("set in auth..", propemail)
   // -------DATABASED FUNCTIONS ----------------------
-  function writeUserData( email,title) {
-    const db = getDatabase();
-    set(ref(db, 'users/' + title), {
-      email
-    });
-  }
 
   function appendData(email, title){
     const postListRef = ref(db, 'users/' + title);
@@ -118,8 +98,6 @@ export default function Home() {
 
 
   function searchData(email,title){
-
-    const dbRef = ref(getDatabase());
     get(child(dbRef, 'users/'+title)).then((snapshot) => {
       if (snapshot.exists()) {
        
@@ -199,8 +177,6 @@ let entireDb ;
 // ---------------CHECKING WHAT MATCHES WITH TODAY UPDATE--------------------
   function sendUpdate(list){
     let toSendUpdateList = [];
-
-    const dbRef = ref(getDatabase());
     get(child(dbRef, 'users/')).then((snapshot) => {
       if (snapshot.exists()) {
        

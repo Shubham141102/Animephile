@@ -18,8 +18,7 @@ export default  function Recentcard(props){
     return(
         <div className={style.recentcard}>
             <div className={styles.card}>
-                <div className={styles.card__inner} style={myStyle}>                    \
-                    {/* <div className={styles.filter}></div> */}
+                <div className={styles.card__inner} style={myStyle}>                    
                 </div>
                 <main className={styles.card__body}>
                         <h1 className={styles.card__title}>{props.item.title}</h1>
