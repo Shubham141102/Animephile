@@ -4,7 +4,6 @@ import Search from "./Search";
 import Link from "next/link";
 import { useRouter } from "next/router";
 export default function Navbar (props){
-
     function logoutme(){
         props.logout();
     }
@@ -30,9 +29,8 @@ export default function Navbar (props){
                 <Search />
                 <p className={styles.hiuser} >Welcome, {props.displayname}</p>
                 <button className={styles.logoutbtn} onClick={logoutme}>LogOut</button>
-                <Link href="/followers">
-                    <button className={styles.logoutbtn} onClick={handleClick}>Followers</button>
-                </Link>
+                <button className={styles.logoutbtn} onClick={handleClick}>Followers</button>
+                
                 <img src={props.profileurl} className={styles.profile}></img>
             </nav>
         </div>
