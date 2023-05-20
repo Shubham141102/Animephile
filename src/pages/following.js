@@ -45,7 +45,7 @@ export default function followers(){
       }
     return(
         <>
-            <Following name={listName}/>
+            <Following name={listName} email={email}/>
         </>
     );
 }

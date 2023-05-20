@@ -14,6 +14,7 @@ export default function Home() {
   const [username, setname] = useState("User");
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
   const [propemail, setEmail] = useState("htieshjain");
+  const [timestamp, setTimestamp] = useState()
   const [isimp, setisImp] = useState(false);
 
   
@@ -52,8 +53,6 @@ export default function Home() {
       // ...
     });
   }
-  console.log("email........firebase...",propemail)
-  console.log("name........firebase...",username)
 
   function logmeout(){
     signOut(auth).then(() => {
@@ -76,7 +75,7 @@ export default function Home() {
         console.log('user innn');
         setname(auth.currentUser.displayName);
         seturl(auth.currentUser.photoURL);
-        setEmail(auth.currentUser.email)
+        setEmail(auth.currentUser.email);
         setLog(0);
     } else {
         // not signed in
@@ -196,12 +195,9 @@ let entireDb ;
     }).catch((error) => {
       console.error(error);
     });
-
-    
-
   }
 
-
+function getTimestamp()
 
 
   return (
