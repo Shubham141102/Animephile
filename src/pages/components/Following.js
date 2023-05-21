@@ -5,7 +5,7 @@ export default function Following(props) {
     const DB = database();
     const db = database.db;
     const handleClick = (item) => {
-        const dataRef = ref(db, '/users'+item);
+        const dataRef = ref(db, '/uid'+uid);
         remove(dataRef).then(()=>{
             console.log("Entry removed")
         }).catch((err)=>{

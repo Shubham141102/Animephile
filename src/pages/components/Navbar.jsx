@@ -10,6 +10,7 @@ export default function Navbar (props){
     function handleClick(){
         const data = {
             email: props.email,
+            uid: props.uid,
         };
 
         router.push(

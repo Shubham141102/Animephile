@@ -14,6 +14,7 @@ export default function Home() {
   const [username, setname] = useState("User");
   const [prourl, seturl] = useState("./assests/defaultprofile.webp");
   const [propemail, setEmail] = useState("htieshjain");
+  const [uid, setUid] = useState()
   const [timestamp, setTimestamp] = useState()
   const [isimp, setisImp] = useState(false);
 
@@ -76,6 +77,7 @@ export default function Home() {
         setname(auth.currentUser.displayName);
         seturl(auth.currentUser.photoURL);
         setEmail(auth.currentUser.email);
+        setUid(auth.currentUser.uid)
         setLog(0);
     } else {
         // not signed in
@@ -94,7 +96,13 @@ export default function Home() {
         "email" : email
     });
   }
-
+  function appendDataEmail(email, title){
+    const postListRef = ref(db, 'uid/' + uid);
+    const newPostRef = push(postListRef);
+    set(newPostRef, {
+        "title" : title
+    });
+  }
 
   function searchData(email,title){
     get(child(dbRef, 'users/'+title)).then((snapshot) => {
@@ -119,7 +127,28 @@ export default function Home() {
     }).catch((error) => {
       console.error(error);
     });
-  
+    get(child(dbRef, 'uid/'+uid)).then((snapshot) => {
+      if (snapshot.exists()) {
+       
+        const data = snapshot.val();
+        for (const key in data){
+          if(data.hasOwnProperty(key)){
+            if(data[key].title === title){
+              return false;
+            }
+          }
+        }
+          // console.log("data email adding ");
+          appendDataEmail(auth.currentUser.email,title);
+          return true;
+      } else {
+        // console.log("No data available and adding new data ");
+        appendDataEmail(auth.currentUser.email,title);
+        return true;
+      }
+    }).catch((error) => {
+      console.error(error);
+    });
   }
 
   function savemyfollow(title){
@@ -197,9 +226,7 @@ let entireDb ;
     });
   }
 
-function getTimestamp()
-
-
+// function getTimestamp()
   return (
     <>
     {islogedin ?
@@ -219,7 +246,7 @@ function getTimestamp()
           </>
           :
           <>
-            <Navbar logout={logmeout} displayname={username} profileurl={prourl} email={propemail}/>
+            <Navbar logout={logmeout} displayname={username} profileurl={prourl} uid={uid}/>
             <Recent savemyfollow={savemyfollow} />
             <Airingtoday savemyfollow={savemyfollow} />
             <News/>
