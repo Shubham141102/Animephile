@@ -15,6 +15,7 @@ export default  function News(){
             (res) => res.json()
           );
         setStateNews(resp.data);
+        console.log(resp.data);
     }
     const cards = stateNews?.map(item => {
         return (

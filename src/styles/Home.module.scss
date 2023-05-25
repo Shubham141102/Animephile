@@ -32,7 +32,7 @@
 
 
 
-  background: linear-gradient(white, white) padding-box,
+  background: linear-gradient(#262626, #262626) padding-box,
       linear-gradient(-120deg,#88d317,#b95eb0) border-box;
   border-radius: 50em;
   border: 3px solid transparent;
@@ -138,15 +138,67 @@
   font-size: 16px;
   color: #ece5ec;
 }
+
+// ----------------------NEWS-------------
+.newscontainer{
+  width : 100vw;
+  display: flex;
+  align-items : center;
+   justify-content: space-between;
+  padding:1.5em;
+  gap:1em;
+  overflow-x: scroll;
+  background-color: #1a0317;
+}
 .newbox{
-  display: flex;  
   border-radius:1em;
-  width:24em;
-  height:9em;
+  width: 30em;
+  height: 24em;
+  background-color: black;
+  flex-shrink: 0;
+  position: relative;
+  border: 7px solid #3f1f3b;
+  overflow: scroll;
   box-shadow:  5px 5px 10px #26262686,
-  -5px -5px 10px #2626268a;
-  background-color: #6c3667;
+           -5px -5px 10px #2626268a;
+}
+
+.newscard{
+  height: 100%;
+  width: 80%;
+}
+
+.newstextbox{
+  background:linear-gradient(90deg,#1f0f1e,rgba(0, 0, 0, 0.657),rgba(0, 0, 0, 0.908),black,black),linear-gradient(black,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),black);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  // padding: 1.5em;
+}
+
+.newheader{
+  font-weight: 600;
+  margin: 25px 15px 5px 25px;
+  font-size: 40px;
+  color: #cfcfcf;
+}
+
+.newtext{
   overflow-y: scroll;
+  margin: 5px 25px 5px 95px;
+  font-size: 18px;
+}
+.newtext::-webkit-scrollbar {
+  display: none;
+}
+
+
+.sectionheading{
+  padding-left:1em;
+  margin-bottom:0; 
+  padding-bottom:0;
 }
 .newbox::-webkit-scrollbar {
   display: none;
@@ -154,45 +206,6 @@
 .newscontainer::-webkit-scrollbar {
   display: none;
 }
-.newscard{
-  height: 100%;
-  width: 30%;
-  background-size: cover;
-}
 .newscard::-webkit-scrollbar {
   display: none;
 }
-.newstextbox{
-  height: 100%;
-  width: 70%;
-}
-
-.newheader{
-  font-weight: 600;
-  margin: 5px auto 5px 5px;
-}
-
-.newtext{
-  overflow-y: scroll;
-  margin: 5px auto 5px 5px;
-}
-.newtext::-webkit-scrollbar {
-  display: none;
-}
-
-.newscontainer{
-  display:grid;
-  grid-template-columns: auto auto auto ;
-  gap:1em;
-  font-family:sans-serif;
-  padding:1.5em;
-  height: 300px;
-  overflow: scroll;
-  margin-bottom: 10em;
-}
-.sectionheading{
-  padding-left:1em;
-  margin-bottom:0; 
-  padding-bottom:0;
-}
-
