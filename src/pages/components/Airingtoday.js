@@ -21,6 +21,7 @@ export default function Airingtoday(props){
             (res) => res.json()
           );
         setState(response.data);
+        console.log(response.data);
     }
 
 

@@ -115,6 +115,7 @@
     border-radius: remy(35px);
     box-shadow: $boxshadow-2;
     margin-left: 10px;
+    margin-right: 10px;
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     @include transition;
     
