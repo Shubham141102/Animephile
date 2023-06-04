@@ -6,10 +6,10 @@
     height: 100vh;
     background-color: #d6d5d5;
     /* background: -webkit-linear-gradient(-60deg,#88d317,#b95eb0); */
-    /* background-image: url('../pages/components/assests/patternb.png'); */
-    background-image: url('../pages/components/assests/ANime\ phile\ homepoage.png');
-    /* background-size: 200px 100px; */
-    background-size: cover;
+    background-image: url('../pages/components/assests/patternb.png');
+    /* background-image: url('../pages/components/assests/ANime\ phile\ homepoage.png'); */
+    background-size: 200px 100px;
+    /* background-size: cover; */
   }
 
   .card {
@@ -93,3 +93,4 @@
     gap: 0.5em;
     padding:0;
   }
+

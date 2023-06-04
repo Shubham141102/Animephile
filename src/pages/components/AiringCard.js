@@ -38,7 +38,7 @@ export default  function AiringCard(props){
                         {/* <div className={styles.card__rating}>
                             {props.item.genres[0].name} 
                         </div> */}
-                        {console.log(props.item.genres[0].)}
+                        {/* {console.log(props.item.genres[0].)} */}
 
                     </div>
                 </main>
