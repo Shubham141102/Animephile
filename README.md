@@ -1,3 +1,12 @@
+# Animephile - a anime episode tracker and reminder
+### technologies : NextJS, Firebase, JikanAPI
+### working : After user is logged in the applications, he can subscribe to different titles. Aftrer subscriving , user receives a email update every time a new episode is released for that anime title.
+<br />
+
+
+![image](https://github.com/IORD1/Animephile/assets/91962775/38143f34-74d0-40b0-aa8f-99664d57bd1b)
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
